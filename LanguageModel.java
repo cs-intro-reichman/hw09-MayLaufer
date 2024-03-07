@@ -91,7 +91,7 @@ public class LanguageModel {
         while (itr.hasNext()) {
             CharData current = itr.next();
             current.cp = cumulativeProb + current.p; 
-            cumulativeProb += current.cp;
+            cumulativeProb = current.cp;
         }
 
 	}
