@@ -5,27 +5,6 @@
  *  mention the existence of the Node objects). */
 public class List {
 
-    /* public static void main(String[] args) { // Remember to erase it before submitting!
-        List test = new List();
-        test.addFirst(' ');
-        test.addFirst('e');
-        test.addFirst('t');
-        test.addFirst('i');
-        test.addFirst('m');
-        test.addFirst('m');
-        test.addFirst('o');
-        test.addFirst('c');
-
-        System.out.println(test.toString());
-        System.out.println(test.getSize());
-        test.update('m');
-        test.remove('i');
-        System.out.println(test.indexOf('i'));
-        System.out.println(test.getFirst());
-
-        // System.out.println(test.get(7));
-    } */
-
     // Points to the first node in this list
     private Node first;
 
@@ -65,7 +44,7 @@ public class List {
             str += (current.cp.toString() + " ");
             current = current.next;
         }
-        str += (")");
+
         return str.substring(0, str.length()-1) + ")";
     }
 
