@@ -71,13 +71,25 @@ public class LanguageModel {
 	// characters in the given list. */
 	public void calculateProbabilities(List probs) {				
 		ListIterator itr = probs.listIterator(0);
-        double cumulativeProb = 0.0;
+        int charCount = 0;
+        int i = 0;
         
         while (itr.hasNext()) {
-            CharData cp = itr.next();
-            cp.p = (double) (1 / probs.getSize()) * cp.count;
-            cumulativeProb += cumulativeProb + cp.p;
-            cp.cp = cumulativeProb;
+            charCount++;
+            itr.next();
+        }
+
+        while (i < charCount) {
+            probs.get(i).p = (1/charCount) * probs.get(i).count;
+            i++;
+        }
+
+        probs.getFirst().cp = probs.getFirst().p;
+        i = 1;
+
+        while (i < charCount) {
+            probs.get(i).cp = probs.get(i-1).cp + probs.get(i).p; 
+            i++;
         }
 
 	}

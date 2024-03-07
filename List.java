@@ -59,14 +59,14 @@ public class List {
     /** GIVE Textual representation of this list. */
     public String toString() {
         if (size == 0) return "()";
-        String str = "( ";
+        String str = "(";
         Node current = first;
         while (current != null) {
             str += (current.cp.toString() + " ");
             current = current.next;
         }
         str += (")");
-        return str;
+        return str.substring(0, str.length()-1) + ")";
     }
 
     /** Returns the index of the first CharData object in this list
