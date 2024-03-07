@@ -81,7 +81,8 @@ public class LanguageModel {
         itr = probs.listIterator(0);
 
         while (itr.hasNext()) {
-            itr.next().p = (double) itr.next().count / charCount;
+            CharData current = itr.next();
+            current.p = (double) current.count / charCount;
         }
 
         itr = probs.listIterator(0);
@@ -89,8 +90,9 @@ public class LanguageModel {
         double cumulativeProb = probs.get(0).cp;
 
         while (itr.hasNext()) {
-            itr.next().cp = cumulativeProb + itr.next().p; 
-            cumulativeProb += itr.next().cp;
+            CharData current = itr.next();
+            current.cp = cumulativeProb + current.p; 
+            cumulativeProb += current.cp;
         }
 
 	}
