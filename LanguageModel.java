@@ -78,17 +78,22 @@ public class LanguageModel {
             charCount += itr.next().count;
         }
 
-        while (i < charCount) {
+        itr = probs.listIterator(0);
+
+        while (itr.hasNext()) {
             probs.get(i).p = (double) probs.get(i).count / charCount;
             i++;
+            itr.next();
         }
 
+        itr = probs.listIterator(0);
         probs.getFirst().cp = probs.getFirst().p;
         i = 1;
 
-        while (i < charCount) {
+        while (itr.hasNext()) {
             probs.get(i).cp = probs.get(i-1).cp + probs.get(i).p; 
             i++;
+            itr.next();
         }
 
 	}
