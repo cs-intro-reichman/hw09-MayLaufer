@@ -86,8 +86,9 @@ public class LanguageModel {
             itr.next();
         }
 
+        i = 0;
         itr = probs.listIterator(0);
-        probs.getFirst().cp = probs.getFirst().p;
+        probs.get(i).cp = probs.get(i).p;
         i = 1;
 
         while (itr.hasNext()) {
