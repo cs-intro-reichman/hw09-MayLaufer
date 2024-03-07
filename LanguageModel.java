@@ -86,8 +86,7 @@ public class LanguageModel {
         }
 
         itr = probs.listIterator(0);
-        probs.get(0).cp = probs.get(0).p;
-        double cumulativeProb = probs.get(0).cp;
+        double cumulativeProb = 0.0;
 
         while (itr.hasNext()) {
             CharData current = itr.next();
