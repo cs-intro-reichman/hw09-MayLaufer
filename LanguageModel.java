@@ -75,8 +75,7 @@ public class LanguageModel {
         int i = 0;
         
         while (itr.hasNext()) {
-            charCount++;
-            itr.next();
+            charCount += itr.next().count;
         }
 
         while (i < charCount) {
