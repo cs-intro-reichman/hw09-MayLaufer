@@ -132,7 +132,7 @@ public class LanguageModel {
         String window = initialText.substring(initialText.length() - windowLength);
         String generatedText = initialText; 
 
-        while (generatedText.length() < textLength) {
+        while (generatedText.length() <= textLength) {
             if (!CharDataMap.containsKey(window)) {
                 return generatedText;
             }
