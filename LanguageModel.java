@@ -80,7 +80,7 @@ public class LanguageModel {
         }
 
         while (i < charCount) {
-            probs.get(i).p = (1.0/charCount) * probs.get(i).count;
+            probs.get(i).p = probs.get(i).count / charCount;
             i++;
         }
 
