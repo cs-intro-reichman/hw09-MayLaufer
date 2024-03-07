@@ -72,7 +72,6 @@ public class LanguageModel {
 	public void calculateProbabilities(List probs) {				
 		ListIterator itr = probs.listIterator(0);
         int charCount = 0;
-        int i = 0;
         
         while (itr.hasNext()) {
             charCount += itr.next().count;
@@ -141,7 +140,7 @@ public class LanguageModel {
             List probs = CharDataMap.get(window);
             char c = getRandomChar(probs);
             generatedText += c;
-            window = generatedText.substring(initialText.length() - windowLength);
+            window = generatedText.substring(generatedText.length() - windowLength);
         }
 
         return generatedText;
